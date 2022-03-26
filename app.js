@@ -3,10 +3,13 @@ const app = express();
 
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
 
 const productRoutes = require("./api/routes/products");
 const orderRoutes = require("./api/routes/orders");
-const { json } = require("body-parser");
+mongoose.connect('mongodb+srv://node-shop:'+ process.env.MONGO_ATLAS_PWD+'@node-rest-shop.f4qfb.mongodb.net/node-rest-shop?retryWrites=true&w=majority');
+//const { json } = require("body-parser");
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended : false}));
