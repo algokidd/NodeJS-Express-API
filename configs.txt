@@ -1,3 +1,0 @@
-#mongo uname & password
-node-shop
-
