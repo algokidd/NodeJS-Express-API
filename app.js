@@ -38,6 +38,10 @@ app.use("/user", userRoutes);
 //     next(error);
 // });
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./openapi.json');
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.use((error, req, res, next) => {
     res.status(error.status || 500);
     res.json({
