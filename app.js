@@ -9,7 +9,7 @@ const orderRoutes = require("./api/routes/orders");
 const userRoutes = require("./api/routes/user");
 
 mongoose.connect('mongodb+srv://node-rest:node-rest@cluster0.ss8prra.mongodb.net/?retryWrites=true&w=majority');
-//const { json } = require("body-parser");
+const { json } = require("body-parser");
 mongoose.Promise = global.Promise;
 
 app.use(morgan('dev'));
