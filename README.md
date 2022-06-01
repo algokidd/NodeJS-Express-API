@@ -1,4 +1,5 @@
 # NodeJS-Express-API
+#Visit below for hosted api
 ```
-#test commit
+http://NodeJS-Express-API.vercel.app
 ```
