@@ -1,5 +1,5 @@
-# NodeJS-Express-API
+# node-js-express-api
 #Visit below for hosted api
 ```
-http://NodeJS-Express-API.vercel.app
+http://node-js-express-api.vercel.app
 ```

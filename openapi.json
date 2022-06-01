@@ -16,7 +16,7 @@
   },
   "servers": [
     {
-      "url": "http://NodeJS-Express-API.vercel.app"
+      "url": "http://node-js-express-api.vercel.app"
     }
   ],
   "tags": [
