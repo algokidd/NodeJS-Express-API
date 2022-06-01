@@ -17,7 +17,7 @@ exports.orders_get_all = (req, res, next) => {
                         quantity: doc.quantity,
                         request: {
                             type: "GET",
-                            url: "http://localhost:3000/orders/" + doc._id
+                            url: "http://NodeJS-Express-API.vercel.apporders/" + doc._id
                         }
                     };
                 })
@@ -56,7 +56,7 @@ exports.orders_create_order = (req, res, next) => {
                 },
                 request: {
                     type: "GET",
-                    url: "http://localhost:3000/orders/" + result._id
+                    url: "http://NodeJS-Express-API.vercel.apporders/" + result._id
                 }
             });
         })
@@ -82,7 +82,7 @@ exports.orders_get_order = (req, res, next) => {
                 order: order,
                 request: {
                     type: "GET",
-                    url: "http://localhost:3000/orders"
+                    url: "http://NodeJS-Express-API.vercel.apporders"
                 }
             });
         })
@@ -101,7 +101,7 @@ exports.orders_delete_order = (req, res, next) => {
                 message: "Order deleted",
                 request: {
                     type: "POST",
-                    url: "http://localhost:3000/orders",
+                    url: "http://NodeJS-Express-API.vercel.apporders",
                     body: { productId: "ID", quantity: "Number" }
                 }
             });
