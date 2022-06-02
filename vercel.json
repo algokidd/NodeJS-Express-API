@@ -14,6 +14,7 @@
                 "start": "nodemon server.js"
             },
             "src": "/(.*)",
+            "use": "@vercel/node",
             "methods": [
                 "GET",
                 "PUT",
