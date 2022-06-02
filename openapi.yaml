@@ -1,0 +1,325 @@
+openapi: 3.0.1
+info:
+  title: node-js-express-api
+  description: ''
+  version: 1.0.0
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+servers:
+  - url: https://node-js-express-api.herokuapp.com:3000/
+tags:
+  - name: user
+    description: Routes related to login/signup
+  - name: products
+    description: Routes related to product creation and manipluation
+  - name: orders
+    description: Routes related to order creation and manipluation
+paths:
+  /products:
+    get:
+      tags:
+        - products
+      description: To fetch all products
+      responses:
+        '200':
+          description: OK
+          content: {}
+        '401':
+          description: Unauthorized
+          content: {}
+        '500':
+          description: Internal Server Error
+          content: {}
+    post:
+      security:
+      - bearerAuth: []
+      tags:
+        - products
+      description: To add new product
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - name
+                - price
+                - productImage
+              properties:
+                name:
+                  type: string
+                  description: Name of the Product.
+                price:
+                  type: string
+                  description: Price of the Product.
+                productImage:
+                  type: string
+                  description: The Image of Product.
+                  format: binary
+      responses:
+        '201':
+          description: Created
+          content: {}
+        '401':
+          description: Unauthorized
+          content: {}
+        '404':
+          description: Not Found
+          content: {}
+        '500':
+          description: Internal Server Error
+          content: {}
+  /products/{productId}:
+    get:
+      tags:
+        - products
+      description: To fetch specific products using productId
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content: {}
+        '404':
+          description: Not Found
+          content: {}
+        '500':
+          description: Internal Server Error
+          content: {}
+    delete:
+      security:
+      - bearerAuth: []
+      tags:
+        - products
+      description: To delete product
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content: {}
+        '401':
+          description: Unauthorized
+          content: {}
+        '500':
+          description: Internal Server Error
+          content: {}
+    patch:
+      security:
+      - bearerAuth: []
+      tags:
+        - products
+      description: To update product details
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              type: array
+              items:
+                type: string
+                example: {"propName":"<name-of-property-to-update","value":"<updated-value>"}
+        required: true
+      responses:
+        '200':
+          description: OK
+          content: {}
+        '401':
+          description: Unauthorized
+          content: {}
+        '500':
+          description: Internal Server Error
+          content: {}
+  /orders:
+    get:
+      security:
+      - bearerAuth: []
+      tags:
+        - orders
+      description: To fetch all products
+      responses:
+        '200':
+          description: OK
+          content: {}
+        '401':
+          description: Unauthorized
+          content: {}
+        '500':
+          description: Internal Server Error
+          content: {}
+    post:
+      security:
+      - bearerAuth: []
+      tags:
+        - orders
+      description: To create new order
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              type: object
+              properties:
+                productId:
+                  type: object
+                  example: any
+                qunatity:
+                  type: object
+                  example: any
+        required: true
+      responses:
+        '201':
+          description: Created
+          content: {}
+        '409':
+          description: Conflict
+          content: {}
+        '500':
+          description: Internal Server Error
+          content: {}
+      x-codegen-request-body-name: body
+  /orders/{orderId}:
+    get:
+      security:
+      - bearerAuth: []
+      tags:
+        - orders
+      description: To get details of specific order
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content: {}
+        '401':
+          description: Unauthorized
+          content: {}
+        '404':
+          description: Not Found
+          content: {}
+        '500':
+          description: Internal Server Error
+          content: {}
+    delete:
+      security:
+      - bearerAuth: []
+      tags:
+        - orders
+      description: To delete order
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content: {}
+        '401':
+          description: Unauthorized
+          content: {}
+        '500':
+          description: Internal Server Error
+          content: {}
+  /user/signup:
+    post:
+      tags:
+        - user
+      description: To create new user
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              type: object
+              properties:
+                email:
+                  type: object
+                  example: any
+                password:
+                  type: object
+                  example: any
+        required: true
+      responses:
+        '201':
+          description: Created
+          content: {}
+        '409':
+          description: Conflict
+          content: {}
+        '500':
+          description: Internal Server Error
+          content: {}
+      x-codegen-request-body-name: body
+  /user/login:
+    post:
+      tags:
+        - user
+      description: To login and obtain token
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              type: object
+              properties:
+                email:
+                  type: object
+                  example: any
+                password:
+                  type: object
+                  example: any
+        required: true
+      responses:
+        '200':
+          description: OK
+          content: {}
+        '401':
+          description: Unauthorized
+          content: {}
+        '500':
+          description: Internal Server Error
+          content: {}
+      x-codegen-request-body-name: body
+  /user/{userId}:
+    delete:
+      security:
+      - bearerAuth: []
+      tags:
+        - user
+      description: To delete user
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content: {}
+        '401':
+          description: Unauthorized
+          content: {}
+        '500':
+          description: Internal Server Error
+          content: {}
