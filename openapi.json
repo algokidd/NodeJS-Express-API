@@ -16,7 +16,7 @@
   },
   "servers": [
     {
-      "url": "http://node-js-express-api.vercel.app"
+      "url": "http://node-js-express-api.herokuapp.com/"
     }
   ],
   "tags": [
