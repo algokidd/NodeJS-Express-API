@@ -8,7 +8,7 @@
   "components": {
     "securitySchemes": {
       "bearerAuth": {
-        "type": "http",
+        "type": "https",
         "scheme": "bearer",
         "bearerFormat": "JWT"
       }
@@ -16,7 +16,7 @@
   },
   "servers": [
     {
-      "url": "http://node-js-express-api.herokuapp.com/"
+      "url": "https://node-js-express-api.herokuapp.com/"
     }
   ],
   "tags": [
