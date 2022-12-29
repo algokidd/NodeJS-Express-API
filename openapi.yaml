@@ -10,7 +10,7 @@ components:
       scheme: bearer
       bearerFormat: JWT
 servers:
-  - url: https://node-js-express-api.herokuapp.com:3000/
+  - url: https://faithful-seal-apron.cyclic.app/:3000/
 tags:
   - name: user
     description: Routes related to login/signup

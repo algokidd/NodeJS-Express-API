@@ -16,7 +16,7 @@
   },
   "servers": [
     {
-      "url": "https://node-js-express-api.herokuapp.com/"
+      "url": "https://faithful-seal-apron.cyclic.app//"
     }
   ],
   "tags": [
