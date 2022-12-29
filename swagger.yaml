@@ -1,0 +1,282 @@
+---
+swagger: "2.0"
+info:
+  description: ""
+  version: 1.0.0
+  title: REST API
+host: localhost:3000
+basePath: /
+schemes:
+- http
+tags:
+- name: user
+  description: Routes related to login/signup
+- name: products
+  description: Routes related to product creation and manipluation
+- name: orders
+  description: Routes related to order creation and manipluation
+paths:
+  /products:
+    get:
+      tags:
+      - products
+      description: To fetch all products
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        type: string
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal Server Error
+    post:
+      tags:
+      - products
+      description: To add new product
+      consumes:
+         - multipart/form-data
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        type: string
+      - in: formData
+        name: name
+        type: string
+        description: Name of the Product.
+        required: true
+      - in: formData
+        name: price
+        type: string
+        description: Price of the Product.
+        required: true
+      - in: formData
+        name: productImage
+        type: file
+        description: The Image of Product.
+        required: true
+      responses:
+        "201":
+          description: Created
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+  /products/{productId}:
+    get:
+      tags:
+      - products
+      description: To fetch specific products using productId
+      parameters:
+      - name: productId
+        in: path
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+    delete:
+      tags:
+        - products
+      description: To delete product
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        type: string
+      - name: productId
+        in: path
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal Server Error
+    patch:
+      tags:
+      - products
+      description: To update product details
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        type: string
+      - name: productId
+        in: path
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal Server Error
+  
+  /orders:
+    get:
+      tags:
+      - orders
+      description: To fetch all products
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal Server Error
+    post:
+      tags:
+      - orders
+      description: To create new order
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        type: string
+      - in: body
+        name: body
+        required: true
+        schema:
+          type: object
+          properties:
+            productId:
+              example: any
+            qunatity:
+              example: any
+      responses:
+        "201":
+          description: Created
+        "409":
+          description: Conflict
+        "500":
+          description: Internal Server Error
+  
+  /orders/{orderId}:
+    get:
+      tags:
+      - orders
+      description: To get details of specific order
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        type: string
+      - name: orderId
+        in: path
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+    delete:
+      tags:
+      - orders
+      description: To delete order
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        type: string
+      - name: orderId
+        in: path
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal Server Error
+  /user/signup:
+    post:
+      tags:
+      - user
+      description: To create new user
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          type: object
+          properties:
+            email:
+              example: any
+            password:
+              example: any
+      responses:
+        "201":
+          description: Created
+        "409":
+          description: Conflict
+        "500":
+          description: Internal Server Error
+  /user/login:
+    post:
+      tags:
+      - user
+      description: To login and obtain token
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          type: object
+          properties:
+            email:
+              example: any
+            password:
+              example: any
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal Server Error
+  /user/{userId}:
+    delete:
+      tags:
+      - user
+      description: To delete user
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        type: string
+      - name: userId
+        in: path
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal Server Error
