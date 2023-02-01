@@ -16,7 +16,7 @@
   },
   "servers": [
     {
-      "url": "https://faithful-seal-apron.cyclic.app/"
+      "url": "https://nodejsexpressapi.onrender.com/"
     }
   ],
   "tags": [
