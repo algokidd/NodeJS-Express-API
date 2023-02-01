@@ -8,7 +8,7 @@ const productRoutes = require("./api/routes/products");
 const orderRoutes = require("./api/routes/orders");
 const userRoutes = require("./api/routes/user");
 
-mongoose.connect('mongodb+srv://node-rest:' + process.env.MONGO_ATLAS_PWD + '@cluster0.ss8prra.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://node-shop:' + process.env.MONGO_ATLAS_PWD + '@node-rest-shop.f4qfb.mongodb.net/?retryWrites=true&w=majority');
 const { json } = require("body-parser");
 mongoose.Promise = global.Promise;
 
