@@ -1,5 +1,5 @@
 # node-js-express-api
 #Visit below for hosted api
 ```
-https://nodejsexpressapi.onrender.com/
+https://dark-gold-bunny-cuff.cyclic.app/
 ```
