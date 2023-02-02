@@ -17,7 +17,7 @@ exports.orders_get_all = (req, res, next) => {
                         quantity: doc.quantity,
                         request: {
                             type: "GET",
-                            url: "https://dark-gold-bunny-cuff.cyclic.app/orders/" + doc._id
+                            url: "https://nodejsexpressapi.onrender.com/orders/" + doc._id
                         }
                     };
                 })
@@ -56,7 +56,7 @@ exports.orders_create_order = (req, res, next) => {
                 },
                 request: {
                     type: "GET",
-                    url: "https://dark-gold-bunny-cuff.cyclic.app/orders/" + result._id
+                    url: "https://nodejsexpressapi.onrender.com/orders/" + result._id
                 }
             });
         })
@@ -82,7 +82,7 @@ exports.orders_get_order = (req, res, next) => {
                 order: order,
                 request: {
                     type: "GET",
-                    url: "https://dark-gold-bunny-cuff.cyclic.app/orders"
+                    url: "https://nodejsexpressapi.onrender.com/orders"
                 }
             });
         })
@@ -101,7 +101,7 @@ exports.orders_delete_order = (req, res, next) => {
                 message: "Order deleted",
                 request: {
                     type: "POST",
-                    url: "https://dark-gold-bunny-cuff.cyclic.app/orders",
+                    url: "https://nodejsexpressapi.onrender.com/orders",
                     body: { productId: "ID", quantity: "Number" }
                 }
             });

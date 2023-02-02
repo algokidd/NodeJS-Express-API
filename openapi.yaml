@@ -10,7 +10,7 @@ components:
       scheme: bearer
       bearerFormat: JWT
 servers:
-  - url: https://dark-gold-bunny-cuff.cyclic.app/:3000/
+  - url: https://nodejsexpressapi.onrender.com/:3000/
 tags:
   - name: user
     description: Routes related to login/signup

@@ -16,7 +16,7 @@
   },
   "servers": [
     {
-      "url": "https://dark-gold-bunny-cuff.cyclic.app/"
+      "url": "https://nodejsexpressapi.onrender.com/"
     }
   ],
   "tags": [
