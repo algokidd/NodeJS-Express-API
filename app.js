@@ -13,7 +13,7 @@ const { json } = require("body-parser");
 mongoose.Promise = global.Promise;
 
 app.use(morgan('dev'));
-app.use('/uploads', express.static('uploads'));
+app.use('/tmp', express.static('tmp'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
