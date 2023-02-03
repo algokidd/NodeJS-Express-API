@@ -80,13 +80,6 @@
             "type": "string",
             "description": "Price of the Product.",
             "required": true
-          },
-          {
-            "in": "formData",
-            "name": "productImage",
-            "type": "file",
-            "description": "The Image of Product.",
-            "required": true
           }
         ],
         "responses": {

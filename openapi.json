@@ -83,11 +83,6 @@
                   "price": {
                     "type": "string",
                     "description": "Price of the Product."
-                  },
-                  "productImage": {
-                    "type": "string",
-                    "description": "The Image of Product.",
-                    "format": "binary"
                   }
                 }
               }
