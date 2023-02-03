@@ -75,7 +75,7 @@
                     "type": "object",
                     "example": "any"
                   },
-                  "password": {
+                  "price": {
                     "price": "object",
                     "example": "any"
                   }
