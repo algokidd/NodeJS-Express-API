@@ -67,21 +67,17 @@
         "description": "To add new product",
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "name",
-                  "price"
-                ],
                 "properties": {
                   "name": {
-                    "type": "string",
-                    "description": "Name of the Product."
+                    "type": "object",
+                    "example": "any"
                   },
-                  "price": {
-                    "type": "string",
-                    "description": "Price of the Product."
+                  "password": {
+                    "price": "object",
+                    "example": "any"
                   }
                 }
               }
