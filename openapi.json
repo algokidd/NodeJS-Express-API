@@ -72,8 +72,7 @@
                 "type": "object",
                 "required": [
                   "name",
-                  "price",
-                  "productImage"
+                  "price"
                 ],
                 "properties": {
                   "name": {
