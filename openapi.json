@@ -69,14 +69,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
+                "type": "string",
                 "properties": {
                   "name": {
-                    "type": "object",
+                    "type": "string",
                     "example": "any"
                   },
                   "price": {
-                    "price": "object",
+                    "price": "string",
                     "example": "any"
                   }
                 }
