@@ -69,20 +69,21 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "string",
+                "type": "object",
                 "properties": {
                   "name": {
-                    "type": "string",
+                    "type": "object",
                     "example": "any"
                   },
                   "price": {
-                    "price": "string",
+                    "price": "object",
                     "example": "any"
                   }
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
